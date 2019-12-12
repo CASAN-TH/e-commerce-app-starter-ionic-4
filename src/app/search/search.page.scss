@@ -1,0 +1,43 @@
+.search-bar {
+    background-color: rgba(240, 240, 240, .5);
+    border-radius: 3px;
+    font-size: .9em !important;
+    margin: 5px;
+}
+.btn {
+    margin: 3px;
+    padding: 5px;
+    border: .5px solid rgb(180, 180, 180);
+    border-radius: 6px;
+}
+.filter-btn {
+    padding-left: 3px;
+    font-size: 12px;
+    padding-right: 3px;
+}
+.view {
+    color: var(--ion-color-mytheme);
+    font-size: 12px;
+}
+.sep {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(210, 210, 210);
+}
+.container-outer { 
+    overflow: scroll; 
+    display: flex;
+    flex-wrap: nowrap;
+}
+.container-inner { 
+    min-width: 120px; 
+    max-width: 120px;
+    display: inline;
+    padding: 3px 9px;
+    align-content: center !important;
+}
+.spon-img {
+    min-height: 100px;
+    max-height: 100px;
+    margin: 3px;
+}

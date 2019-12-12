@@ -1,0 +1,183 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-title color="light">
+      Order Details
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close" slot="icon-only" class="white" margin></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-item margin-bottom no-padding lines="none" class="card">
+    <ion-row align-items-center>
+      <ion-col size="2">
+        <img [src]="order.product.image[0]">
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-text>
+            <h5 class="title" no-margin><strong>{{order.product.name}}</strong></h5>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 no-margin class="sub">{{order.status}}</h6>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item margin-bottom no-padding lines="none" class="card">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray" no-margin>Order date</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 no-margin class="title">{{fun.date(order.order_date)}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray" no-margin>Order #</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 no-margin class="title">{{order.id}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray" no-margin>Order total</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 no-margin class="title">{{order.amount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item margin-bottom no-padding lines="none" class="card">
+    <ion-col>
+      <ion-row>
+        <ion-text>
+          <h6 class="title" no-margin>Billing Address</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.billing_address.first_name}} {{order.billing_address.last_name}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.billing_address.address_line_1}},
+            {{order.billing_address.address_line_2}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.billing_address.city}}, {{order.billing_address.state}},
+            {{order.billing_address.country}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.billing_address.zipcode}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.billing_address.phone_number}}</h6>
+        </ion-text>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item margin-bottom no-padding lines="none" class="card">
+    <ion-col>
+      <ion-row>
+        <ion-text>
+          <h6 class="title" no-margin>Shipping Address</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.shipping_address.first_name}} {{order.shipping_address.last_name}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.shipping_address.address_line_1}},
+            {{order.shipping_address.address_line_2}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.shipping_address.city}}, {{order.shipping_address.state}},
+            {{order.shipping_address.country}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.shipping_address.zipcode}}</h6>
+        </ion-text>
+      </ion-row>
+      <ion-row>
+        <ion-text>
+          <h6 no-margin class="title gray">{{order.shipping_address.phone_number}}</h6>
+        </ion-text>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item margin-bottom no-padding lines="none" class="card">
+    <ion-col>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray" no-margin>Amount</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 no-margin class="title">{{order.amount}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-text>
+            <h6 class="title gray" no-margin>Tax</h6>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>
+            <h6 no-margin class="title">{{order.tax}}</h6>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+</ion-content>

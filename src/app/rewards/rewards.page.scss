@@ -1,0 +1,128 @@
+.btn-active{
+    background-color: unset;
+    color: white !important;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 21px;
+    border-radius: 3px;
+    border-bottom: 1px solid gray;
+    --indicator-color-checked:none !important;
+    ion-text{
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+}
+.text {
+    font-size: 12px;
+}
+.menu {
+    color: white !important;
+}
+.my-btn{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(250, 250, 250);
+    margin: 0 12px !important;
+    width: fit-content;
+    --background-checked: transparent;
+    min-height: 25px;
+}
+.my-btn2{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(90, 90, 90);
+    margin: 0 12px !important;
+}
+.btn-active2{
+    background-color: rgba(210, 210, 210, .5);
+    color: black !important;
+    font-weight: bold;
+    border-radius: 3px;
+    --indicator-color-checked:none !important;
+}
+#dag{
+    scroll-behavior: smooth;
+}
+.hor-scroll{
+    height: 30px;
+}
+.card {
+    border-radius: 3px;
+    border: .3px solid rgb(210, 210, 210);
+    padding: 6px;
+    background-color: white;
+}
+.head{
+    padding: 6px;
+    background-color: white;
+}
+.full {
+    width: 100%;
+}
+.img {
+    background-size: contain;
+    width: 90px;
+    align-self: center;
+}
+.toptext {
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+.sub {
+    color: rgb(120, 120, 120);
+    font-size: 12px;
+}
+.sub2 {
+    font-size: 13px;
+}
+.off {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.off-small {
+    font-size: 10px;
+    color: rgb(120, 120, 120);
+    margin-bottom: 5px;
+}
+.off-code {
+    background-color: rgba(210, 210, 210, .5);
+    border: .5px solid rgb(180, 180, 180);
+    margin-bottom: 5px;
+    padding: 3px;
+}
+.udanchuu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 3px;
+    border-radius: 10px;
+    height: 15px;
+}
+.mar-top {
+    margin-top: 3px;
+}
+.mycolor {
+    font-size: 15px;
+}
+.foot {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.off-codein {
+    font-size: 10px;
+    color: rgb(120, 120, 120);
+}
+.bottom {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+}
+.segmenttoolbarSection{
+    --min-height: 30px;
+    .segSection{
+        display: flex;
+        align-items: flex-end;
+        min-height:30px;
+    }
+}

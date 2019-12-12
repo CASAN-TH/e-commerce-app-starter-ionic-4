@@ -1,0 +1,49 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+      Your Orders
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="cart" slot="icon-only" (click)="fun.navigate('cart')" class="white" margin></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-item margin-bottom no-padding lines="none" *ngFor="let order of orders" class="card" (click)="open(order)">
+    <ion-row align-items-center>
+      <ion-col size="2">
+        <img [src]="order.product.image[0]">
+      </ion-col>
+      <ion-col>
+        <ion-row>
+          <ion-text>
+            <h5 class="title" no-margin><strong>{{order.product.name}}</strong></h5>
+          </ion-text>
+        </ion-row>
+        <ion-row>
+          <ion-text>
+            <h6 no-margin class="sub">{{order.status}}</h6>
+          </ion-text>
+        </ion-row>
+      </ion-col>
+      <ion-col float-right size="2">
+        <ion-icon class="item-icon mycolor" name="arrow-dropright" float-right mode="ios"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-content>

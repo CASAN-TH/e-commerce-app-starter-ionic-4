@@ -1,0 +1,42 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Notifications</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme" class="segmenttoolbarSection">
+    <ion-segment (ionChange)="seg($event)" mode="md" scrollable id="dag" class="segSection">
+      <ion-segment-button *ngFor="let item of data; let i = index;" no-margin no-padding (ionSelect)="update(i)" class="my-btn"
+        [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
+        <ion-text padding-horizontal class="text">{{item.title}}</ion-text>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-vertical color="light">
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" #Slides>
+    <ion-slide>
+      <app-list [data]="notifications.all"></app-list>
+    </ion-slide>
+    <ion-slide>
+      <app-list [data]="notifications.deals"></app-list>
+    </ion-slide>
+    <ion-slide>
+      <app-list [data]="notifications.orders"></app-list>
+    </ion-slide>
+    <ion-slide>
+      <app-list [data]="notifications.others"></app-list>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

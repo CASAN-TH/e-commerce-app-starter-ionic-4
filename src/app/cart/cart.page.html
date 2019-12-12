@@ -1,0 +1,143 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-top color="light">
+  <div class="mid" *ngIf="!show">
+    <ion-row size="12" justify-content-center disabled="true">
+      <button class="circle">
+        <ion-icon name="cart" size="large"></ion-icon>
+      </button>
+    </ion-row>
+    <ion-row size="12" justify-content-center disabled="true">
+      <ion-text><strong>Your cart is empty</strong></ion-text>
+    </ion-row>
+    <ion-row size="12" justify-content-center disabled="true">
+      <ion-button fill="clear" color="primary" (click)="browse()">Browse Products</ion-button>
+    </ion-row>
+  </div>
+  <div *ngIf="show">
+    <ion-row margin-horizontal margin-bottom>
+      <ion-text><strong class="text">Items in Cart</strong></ion-text>
+    </ion-row>
+    <ion-list #slidingList>
+      <ion-item-sliding no-padding *ngFor="let item of data; let j = index;" class="card" no-margin>
+        <ion-item lines="none">
+          <ion-row>
+            <ion-col size="3" text-center>
+              <img [src]="item.product.image[0]" alt="item.product.name">
+              <ion-text color="danger" class="small" (click)="remove(j)">Remove</ion-text>
+            </ion-col>
+            <ion-col size="6">
+              <h3 no-margin class="item-name">{{item.product.name}}</h3>
+              <h5 no-margin class="item-def">{{item.product.size}}, {{item.product.color}}</h5>
+              <h5 no-margin class="item-def">shipping: {{item.product.currency}}{{item.product.shipping}}</h5>
+              <h5 no-margin class="item-def">Dec 31 - Jan 17</h5>
+            </ion-col>
+            <ion-col size="3" float-right>
+              <ion-row text-end justify-content-end>
+                <h3 no-margin class="item-name" *ngIf="item.product.offer" text-end>{{item.product.currency}}{{fun.calculate(item.product.cost_price,
+                  item.product.discount)}}</h3>
+                <h3 no-margin class="item-name" *ngIf="item.product.offer" text-end><span class="cut">{{item.product.currency}}{{item.product.cost_price}}</span></h3>
+                <h3 no-margin class="item-name" *ngIf="!item.product.offer" text-end>{{item.product.currency}}{{item.product.cost_price}}</h3>
+              </ion-row>
+              <ion-row justify-content-end>
+                <ion-select placeholder="-" interface="popover" [interfaceOptions]="customAlertOptions" [(ngModel)]='item.quantity'
+                  class="select">
+                  <ion-select-option *ngFor="let q of qty" [(value)]="q" text-center>{{q}}</ion-select-option>
+                </ion-select>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="remove(j)">
+            <ion-icon name="trash" size="large"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+    <ion-row size="12" justify-content-center disabled="true">
+        <ion-button fill="outline" color="primary" (click)="browse()">Continue shopping</ion-button>
+      </ion-row>
+    <ion-row margin>
+      <ion-text><strong class="text">Order Summary</strong></ion-text>
+    </ion-row>
+    <ion-item lines="none" class="card" no-margin>
+      <ion-row class="full">
+        <ion-col size="9">
+          <ion-input placeholder="Enter Promo Code" [(value)]="code" class="input"></ion-input>
+        </ion-col>
+        <ion-col align-self-center size="3">
+          <ion-button fill="outline" expand="block" color="mytheme"><span class="small">Apply</span></ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <div lines="none" class="card" no-margin padding-bottom>
+      <ion-row class="full" padding-horizontal>
+        <ion-col size="9">
+          <ion-text>Item Total</ion-text>
+        </ion-col>
+        <ion-col size="3" text-end>
+          <ion-text>{{data[0].product.currency}}{{fix(calculate(0))}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full" padding-horizontal>
+        <ion-col size="9">
+          <ion-text>Shipping</ion-text>
+        </ion-col>
+        <ion-col size="3" text-end>
+          <ion-text>{{data[0].product.currency}}{{fix(calculate(1))}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full" padding-horizontal>
+        <ion-col size="9">
+          <ion-text>Item Total</ion-text>
+        </ion-col>
+        <ion-col size="3" text-end>
+          <ion-text>{{data[0].product.currency}}{{fix(add())}}</ion-text>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row>
+        <ion-col>
+          <ion-text class="item-def" text-start>
+            <div class="pad">
+              By tapping 'Checkout' you aggree to the <a (click)="open_modal(true)" class="mycolor">Terms of Use</a>
+              and <a class="mycolor" (click)="open_modal(false)">Privacy Policy</a>
+            </div>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row>
+        <ion-col>
+          <ion-text class="item-def" text-start padding-bottom>
+            <div class="mycolor pad">
+              30 Day Free Return and Refund
+            </div>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
+<ion-footer *ngIf="show" (click)="fun.checkout()">
+  <ion-toolbar color="success">
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-footer>

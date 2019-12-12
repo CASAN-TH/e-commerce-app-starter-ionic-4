@@ -1,0 +1,45 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Currency Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item lines="none" color="light">
+    <ion-col padding-vertical>
+      <ion-row>
+        <h4 class="small" no-margin><strong>Select your preferred currency</strong></h4>
+      </ion-row>
+      <ion-row>
+        <h4 class="small" no-margin>If you change your currency, you will need to restart your app to take full effect.</h4>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-col padding-vertical justify-content-center>
+      <ion-row justify-content-center>
+        <h4 class="medium" no-margin>Current selected currency</h4>
+      </ion-row>
+      <ion-row justify-content-center margin-top>
+        <ion-select [(value)]="currency" class="input full">
+          <ion-select-option *ngFor="let q of data" [(value)]="q.alpha3Code">{{q.alpha3Code}}</ion-select-option>
+        </ion-select>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+</ion-content>
+<ion-footer no-border padding>
+  <ion-button expand="block" color="mytheme" (click)="fun.back()"><span class="white"><strong>Change Currency</strong></span></ion-button>
+</ion-footer>

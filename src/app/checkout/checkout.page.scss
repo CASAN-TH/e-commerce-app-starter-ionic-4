@@ -1,0 +1,28 @@
+.input {
+    border: .5px solid rgb(210, 210, 210);
+    background-color: rgba(240, 240, 240, .5);
+    border-radius: 3px;
+    font-size: .9em !important;
+}
+.label {
+    font-size: 12px;
+}
+.small {
+    font-size: 9px;
+    color: rgb(120, 120, 120);
+}
+.icon {
+    font-size: 21px;
+}
+.bottom {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.add-payment-div{
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 10px;
+}

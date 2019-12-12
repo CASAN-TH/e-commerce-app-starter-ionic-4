@@ -1,0 +1,41 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Account Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-radio-group>
+      <div *ngFor="let d of data">
+        <ion-item>
+          <ion-row class="full" align-items-center>
+            <ion-col>
+              <ion-row align-items-center>
+                <ion-col>
+                  <h4 class="medium" no-margin>{{d.name}}</h4>
+                </ion-col>
+                <ion-col float-right size="2">
+                  <ion-radio float-right [value]="d.name"></ion-radio>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <div class="sep"></div>
+      </div>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,29 @@
+.head {
+    min-height: 21vh !important;
+}
+.head-image {
+    background-size: contain;
+    width: 180px;
+    align-self: center;
+}
+.small {
+    a{
+        font-size: 13px;
+        text-decoration: unset !important;
+    }
+}
+.input {
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(210, 210, 210);
+    border-radius: 9px;
+    font-size: .9em !important;
+}
+.white{
+    color: white;
+}
+.title {
+    font-size: 18px;
+}
+.logo {
+    width: 1.25em !important;
+}

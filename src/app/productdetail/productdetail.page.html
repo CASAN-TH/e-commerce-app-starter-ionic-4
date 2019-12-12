@@ -1,0 +1,70 @@
+
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="fun.navigate('cart')">
+        <ion-icon name="cart" slot="icon-only" class="white top-btn" no-margin ></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon name="search" slot="icon-only" class="white top-btn" no-margin></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme" class="segmenttoolbarSection">
+    <ion-segment (ionChange)="seg($event)" mode="md" scrollable="true" id="dag" class="segSection">
+      <ion-segment-button [attr.id]="'seg_' + i" *ngFor="let item of data; let i = index;" no-margin no-padding (ionSelect)="update(i)" class="my-btn"
+        [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
+        <ion-text padding-horizontal class="text">{{item.title}}</ion-text>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" #Slides>
+    <ion-slide>
+      <app-product (notify)="onReviewClick($event)" [product]="product" [slider]="slider" class="slide"></app-product>
+    </ion-slide>
+    <ion-slide padding class="light-bg">
+      <app-innerhome [recieved_data]="dataService.products_1" class="slide"></app-innerhome>
+    </ion-slide>
+    <ion-slide>
+      <app-review [product]="product" [bool]="true" class="slide"></app-review>
+    </ion-slide>
+    <ion-slide>
+      <app-review [product]="product" [bool]="false" class="slide"></app-review>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer class="footer" align-items-center *ngIf="segment == 'Overview'">
+  <ion-row align-items-center>
+    <ion-col padding>
+      <ion-text *ngIf="product.offer">
+        <h6 no-margin class="cut">{{product.currency}}{{product.cost_price}}</h6>
+      </ion-text>
+      <ion-text *ngIf="product.offer">
+        <h3 no-margin class="foot-highlight">{{product.currency}}{{fun.calculate(product.cost_price,
+          product.discount)}}</h3>
+      </ion-text>
+      <ion-text *ngIf="!product.offer">
+        <h3 no-margin class="foot-highlight">{{product.currency}}{{product.cost_price}}</h3>
+      </ion-text>
+    </ion-col>
+    <ion-col size="4">
+      <ion-button (click)="goToCart()" float-right class="white foot-btn" color="orange" no-margin expand="block"><strong>Buy</strong></ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

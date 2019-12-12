@@ -1,0 +1,72 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Wish Cash</ion-title>
+  </ion-toolbar>
+  <div class="mybg">
+    <ion-row align-items-center>
+      <ion-col justify-content-center>
+        <h6 no-margin class="small white" text-center>Available Balance</h6>
+        <h5 no-margin class="white amt" text-center>{{dataService.wish_cash.currency}}{{fun.calculate(dataService.wish_cash.amount,
+          0)}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row class="hor-scroll" margin-top>
+      <ion-segment (ionChange)="seg($event)" scrollable id="dag" class="segSection">
+        <ion-segment-button *ngFor="let item of data; let i = index;" no-margin no-padding (ionSelect)="update(i)"
+          class="my-btn" [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
+          <ion-text class="text">{{item.title}}</ion-text>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+  </div>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" #Slides>
+    <ion-slide text-start>
+      <ion-list class="light">
+        <div class="normal light">You can use the available balance to buy anything on Wish.</div>
+        <div class="bold light">Can money added to Wish Cash be refunded or taken out?</div>
+        <div class="normal light">No, once money is added to Wish Cash, it cannot be refunded or taken out.</div>
+        <div class="bold light">What can I buy with Wish Cash?</div>
+        <div class="normal light">Wish Cash is applicable towards any item on Wish.</div>
+        <div class="bold light">Do funds expire?</div>
+        <div class="normal light">Wish Cash never expires!</div>
+        <div class="bold light">Where do you apply Wish Cash?</div>
+        <div class="normal light">Funds are automatically applied at checkout</div>
+        <div class="bold light">What if I don't have enough Wish Cash when checking out?</div>
+        <div class="normal light">We will use the remaining balance in your Wish Cash account and default the rest of
+          the payment to your preferred payment method.</div>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <div *ngIf="dataService.wish_cash.history.length == 0" class="mid">
+        <ion-row size="12" justify-content-center disabled="true">
+          <button class="circle">
+            <ion-icon name="wallet" size="large"></ion-icon>
+          </button>
+        </ion-row>
+        <ion-row size="12" justify-content-center disabled="true">
+          <ion-text><strong>No history yet!</strong></ion-text>
+        </ion-row>
+      </div>
+      <div *ngIf="dataService.wish_cash.history.length != 0" class="full">
+        <ion-item margin-bottom lines="none" *ngFor="let d of dataService.wish_cash.history" class="card">
+          <strong>{{dataService.wish_cash.currency}}{{d.amount}}</strong>
+        </ion-item>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,56 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add New Payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Credit/Debit Number</span></ion-text>
+      <ion-input class="input" padding-horizontal type="number" placeholder="Credit/Debit Number"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Security Code(CVV)</span></ion-text>
+      <ion-input class="input" padding-horizontal type="number" placeholder="CVV"></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-text><span class="label">Expiry Date</span></ion-text>
+      <ion-input class="input" placeholder="MM/YY" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <h5 no-margin class="label">Billing Zip/Postal Code</h5>
+      <h6 class="small">The zip or postal code from the address registered for this card</h6>
+    </ion-col>
+    <ion-col>
+      <ion-input class="input" placeholder="Zip/Postal Code" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="2">
+      <ion-icon name="lock" class="icon"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <h5 no-margin class="label">Secure Payment</h5>
+      <h6 class="small">Trusted by over 500 million shoppers in 50 countries</h6>
+    </ion-col>
+  </ion-row>
+  <ion-button expand="block" color="mytheme" class="bottom" (click)="done()"><span class="white"><strong>Add New
+        Payment Method</strong></span></ion-button>
+</ion-content>

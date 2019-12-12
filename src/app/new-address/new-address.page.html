@@ -1,0 +1,71 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Add New Address</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">First Name</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.first_name" padding-horizontal></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-text><span class="label">Last Name</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.last_name" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Address Line 1</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.address_line_1" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Address Line 2</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.address_line_2" padding-horizontal placeholder="Optional"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Country</span></ion-text>
+      <ion-select [(value)]="address.country" class="input">
+        <ion-select-option *ngFor="let q of countries" [(value)]="q.name">{{q.name}}</ion-select-option>
+      </ion-select>
+    </ion-col>
+    <ion-col>
+      <ion-text><span class="label">State</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.state" padding-horizontal placeholder="Optional"></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">City</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.city" padding-horizontal></ion-input>
+    </ion-col>
+    <ion-col>
+      <ion-text><span class="label">Zipcode</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.zipcode" type="number" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-text><span class="label">Phone Number</span></ion-text>
+      <ion-input class="input" [(ngModel)]="address.phone_number" type="number" padding-horizontal></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-button expand="block" color="mytheme" class="bottom" (click)="update()"><span class="white"><strong>Save</strong></span></ion-button>
+</ion-content>

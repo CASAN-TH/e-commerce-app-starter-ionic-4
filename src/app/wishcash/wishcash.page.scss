@@ -1,0 +1,74 @@
+.amt {
+    font-size: 45px;
+}
+.menu {
+    color: white !important;
+}
+.hor-scroll{
+    height: 40px;
+}
+.mid {
+    transform: translate(-50%,-50%);
+    position: absolute;
+    top: 35vh;
+    left: 50%;
+}
+.card {
+    padding: 6px;
+    border-radius: 3px;
+    border: .3px solid rgb(210, 210, 210);
+    background-color: white;
+}
+.full {
+    width: 100%;
+}
+.circle{
+    border-radius: 40px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 3px;
+}
+.my-btn{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(250, 250, 250);
+    margin: 0 12px !important;
+}
+.text {
+    font-size: 12px;
+}
+.btn-active{
+    background-color: unset;
+    color: white;
+    font-size: 21px;
+    text-decoration: underline;
+    font-weight: bold;
+    border-radius: 3px;
+    border-bottom: 1px solid gray;
+    --indicator-color-checked:none !important;
+    ion-text{
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+}
+.light {
+    background-color: var(--ion-color-light);
+}
+.normal {
+    font-size: 15px;
+    margin-bottom: 9px;
+    display: block;
+}
+.bold {
+    font-weight: bold;
+    margin-bottom: 9px;
+    display: block;
+    font-size: 16px;
+}
+#dag{
+    scroll-behavior: smooth;
+}
+.segSection{
+    width:100%;
+}

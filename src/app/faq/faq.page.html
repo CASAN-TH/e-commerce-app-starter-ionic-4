@@ -1,0 +1,29 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+    <ion-toolbar color="mytheme">
+      <ion-title color="light">Order Details</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon name="close" slot="icon-only" (click)="dismiss()" class="white" margin></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content padding color="light">
+  <ion-item no-padding lines="none" class="card">
+    <ion-col>
+      <h3><strong>{{title}}</strong></h3>
+      <div margin-bottom *ngFor="let question of que; let i = index">
+        <ion-text><h5 class="que" no-margin><strong>{{question}}</strong></h5></ion-text>
+        <ion-text><h5 class="ans" no-margin>{{ans[i]}}</h5></ion-text>
+      </div>
+    </ion-col>
+  </ion-item>
+</ion-content>

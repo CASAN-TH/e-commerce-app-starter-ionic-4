@@ -1,0 +1,80 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-input type="text" (click)="fun.navigate('search')" padding-start placeholder="I'm shopping for..." class="search-bar"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="fun.navigate('cart')">
+        <ion-icon name="cart" slot="icon-only" no-margin class="white top-btn"></ion-icon>
+      </ion-button>
+      <ion-button (click)="side_open()">
+        <ion-icon name="switch" slot="icon-only" *ngIf="segment!=data[1].title" no-margin class="white top-btn"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme" class="segmenttoolbarSection">
+      <ion-segment mode="md"  (ionChange)="seg($event)" scrollable="true" id="dag" class="segSection">
+        <ion-segment-button   [attr.id]="'seg_' + i" *ngFor="let item of data; let i = index;" no-margin no-padding (ionSelect)="update(i)"
+          class="my-btn" [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
+          <ion-text padding-horizontal class="text">{{item.title}}</ion-text>
+        </ion-segment-button>
+      </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" (click)="preventDefault($event)" #Slides>
+    <ion-slide>
+      <app-productlist [recieved_data]="sponsored"></app-productlist>
+    </ion-slide>
+    <ion-slide >
+      <app-productlist [recieved_data]="product_data_2"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_3"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_4"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_5"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="sponsored"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_2"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="sponsored"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_4"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_5"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="sponsored"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_2"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_3"></app-productlist>
+    </ion-slide>
+    <ion-slide>
+      <app-productlist [recieved_data]="product_data_4"></app-productlist>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

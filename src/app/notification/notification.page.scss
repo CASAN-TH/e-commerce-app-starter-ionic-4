@@ -1,0 +1,46 @@
+.btn-active{
+    background-color: unset;
+    color: white !important;
+    text-decoration: underline;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 21px;
+    border-bottom: 1px solid gray;
+    --indicator-color-checked:none !important;
+    ion-text{
+        border-bottom: 2px solid white;
+        padding-bottom: 5px;
+    }
+}
+.text {
+    font-size: 12px;
+}
+.my-btn{
+    border: unset !important;
+    border-radius: 5px !important;
+    color: rgb(250, 250, 250);
+    margin: 0 12px !important;
+    width: fit-content;
+    --background-checked: transparent;
+    min-height: 25px;
+}
+.hor-scroll{
+    height: 30px;
+}
+.white {
+    color: white !important;
+}
+.menu {
+    color: white !important;
+}
+#dag{
+    scroll-behavior: smooth;
+}
+.segmenttoolbarSection{
+    --min-height: 30px;
+    .segSection{
+        display: flex;
+        align-items: flex-end;
+        min-height:30px;
+    }
+}

@@ -1,0 +1,50 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Customer Support</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart" slot="icon-only" (click)="fun.navigate('cart')" class="white" margin></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-vertical color="light">
+  <ion-item lines="none" no-margin *ngFor="let conv of conversation; let i = index;" class="animate" color="light">
+    <ion-row no-padding class="full">
+      <ion-col size="2" [ngClass]="{'left' : !conv.sender, 'right': conv.sender}"><img [src]="conv.image" class="avatar"
+          [ngClass]="{'left' : !conv.sender, 'right': conv.sender}"></ion-col>
+      <ion-col class="card" [ngClass]="{'left' : !conv.sender, 'right': conv.sender}">
+        <ion-text>
+          <h5 no-margin class="text">{{conv.text}}</h5>
+        </ion-text>
+      </ion-col>
+      <!--
+      <ion-col class="card" [ngClass]="{'left' : !conv.sender, 'right': conv.sender}">
+        <ion-text><h5 no-margin class="text">{{conv.text}}</h5></ion-text> -->
+      <!-- </ion-col> -->
+    </ion-row>
+  </ion-item>
+</ion-content>
+<ion-footer>
+  <ion-row align-items-center>
+    <ion-col size="9">
+      <ion-input class="input restrict" type="text" placeholder="Type a message" [(ngModel)]="input" padding-start></ion-input>
+    </ion-col>
+    <ion-col size="3">
+      <ion-button shape="round" class="restrict" color="mytheme" expand="block" (click)="send()">
+        <ion-icon class="white" name="send"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

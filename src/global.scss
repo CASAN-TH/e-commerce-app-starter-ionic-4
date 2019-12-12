@@ -1,0 +1,88 @@
+// http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+/* custom font */
+@import url("https://fonts.googleapis.com/css?family=Muli:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i");
+* {
+  font-family: "Muli", sans-serif;
+}
+.line {
+  width: 75%;
+  height: 1px;
+  background: #989aa2;
+  margin: 1px auto 1px auto;
+  position: relative;
+}
+.mybg {
+  background-color: var(--ion-color-mytheme) !important;
+}
+.mycolor {
+  color: var(--ion-color-mytheme) !important;
+}
+.ion-color-mytheme {
+  --ion-color-base: var(--ion-color-mytheme) !important;
+  --ion-color-base-rgb: var(--ion-color-mytheme-rgb) !important;
+  --ion-color-contrast: var(--ion-color-mytheme-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-mytheme-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-mytheme-shade) !important;
+  --ion-color-tint: var(--ion-color-mytheme-tint) !important;
+}
+.ion-color-fb {
+  --ion-color-base: var(--ion-color-fb) !important;
+  --ion-color-base-rgb: var(--ion-color-fb-rgb) !important;
+  --ion-color-contrast: var(--ion-color-fb-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-fb-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-fb-shade) !important;
+  --ion-color-tint: var(--ion-color-fb-tint) !important;
+}
+.ion-color-orange {
+  --ion-color-base: var(--ion-color-orange) !important;
+  --ion-color-base-rgb: var(--ion-color-orange-rgb) !important;
+  --ion-color-contrast: var(--ion-color-orange-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-orange-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-orange-shade) !important;
+  --ion-color-tint: var(--ion-color-orange-tint) !important;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.small {
+  font-size: 11px;
+  margin-top: 5px;
+}
+.white {
+  color: white !important;
+}
+.medium {
+  font-size: 16px;
+}
+.top-btn {
+  padding: 9px;
+}
+.sidemenu-icon {
+  font-size: 24px !important;
+  color: #666;
+}
+.small-menu-icon {
+  margin-right: 3px;
+  font-size: 15px;
+}
+.menu {
+  color: white !important;
+}
+.label-subtext{
+    position: absolute;
+    right: 20px;
+}
+.padding-0{
+  padding: 0;
+}

@@ -1,0 +1,70 @@
+.white {
+    color: white;
+}
+.circle{
+    border-radius: 40px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+.input {
+    background-color: rgba(240, 240, 240, .5);
+    border-radius: 3px;
+    border: 1px solid rgb(240, 240, 240);
+    font-size: .9em !important;
+}
+.pad {
+    padding: 0 6px;
+}
+.mid {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate(0, -50%);
+}
+.full {
+    width: 100%;
+}
+.cut{
+    color: rgb(120, 120, 120);
+    text-decoration: line-through;
+}
+.blue{
+    color: blue;
+}
+.sep {
+    height: 1px;
+    background-color: rgb(210, 210, 210);
+    width: 100vw;
+    margin: 6px 0;
+}
+.text {
+    font-size: .81em;
+}
+.select {
+    background-color: rgb(240, 240, 240);
+    border-radius: 3px;
+    border: 1px solid rgb(210, 210, 210);
+    padding: 6px 12px;
+    min-width: 100%;
+}
+.card {
+    background-color: white;
+    margin-top: 9px;
+}
+div{
+    min-width: 100%;
+}
+.item-name {
+    font-size: 1em;
+    color: rgb(12, 12, 12);
+}
+.small {
+    margin: 0;
+    font-size: .81em;
+}
+.item-def {
+    font-size: .81em;
+    color: rgb(120, 120, 120);
+}

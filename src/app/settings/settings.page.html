@@ -1,0 +1,54 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">
+        Settings
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding-bottom>
+  <ion-list lines="none" no-margin>
+    <div *ngFor="let item of items;let i = index;">
+      <ion-item (click)="nav(i)">
+        <ion-text>
+          <h4 class="medium" no-margin>{{item.name}}</h4>
+        </ion-text>
+      </ion-item>
+      <div class="sep"></div>
+    </div>
+  </ion-list>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin><a (click)="open_modal(true)" class="mycolor">Terms of Use</a> and <a class="mycolor"
+        (click)="open_modal(false)">Privacy Policy</a></h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>Logged in via: Google</h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>Email: {{dataService.current_user.email}}</h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>User ID: {{dataService.current_user.uid}}</h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>Device ID: {{dataService.current_user.did}}</h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>Ad ID: {{dataService.current_user.aid}}</h4>
+  </ion-row>
+  <ion-row padding-horizontal>
+    <h4 class="small" no-margin>Wish x4.25.6</h4>
+  </ion-row>
+</ion-content>

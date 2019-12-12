@@ -1,0 +1,66 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Address Book</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-row padding>
+    <ion-text>
+      <h4 no-margin class="medium"><strong>Push Notifications</strong></h4>
+    </ion-text>
+  </ion-row>
+  <ion-list lines="none" *ngIf="dataService.current_user.address.length > 0">
+    <ion-item *ngFor="let add of dataService.current_user.address; let i = index;">
+      <ion-row class="full" align-items-center>
+        <ion-col size="2">
+          <ion-icon name="pin" size="large" color="medium"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-row align-items-center>
+            <p no-margin ><strong>{{add.first_name}} {{add.last_name}}</strong></p>
+            <h6 class="small mycolor" *ngIf="i==0" padding-start>PRIMARY</h6>
+          </ion-row>
+          <ion-row>
+            <p no-margin >{{add.address_line_1}}, {{add.address_line_2}}</p>
+          </ion-row>
+          <ion-row>
+            <p no-margin >{{add.city}}, {{add.state}}</p>
+          </ion-row>
+          <ion-row>
+            <p no-margin >{{add.country}}</p>
+          </ion-row>
+          <ion-row>
+            <p no-margin >{{add.zipcode}}</p>
+          </ion-row>
+        </ion-col>
+        <ion-row >
+          <ion-col>
+            <ion-icon name="create" class="mycolor item-icons"></ion-icon>
+          </ion-col>
+          <ion-col>
+            <ion-icon name="trash" class="mycolor item-icons"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-list margin-top lines="none">
+    <ion-item (click)="open()">
+      <ion-icon name="add" class="mycolor" margin-end></ion-icon>
+      <ion-label class="mycolor">Add New Address</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

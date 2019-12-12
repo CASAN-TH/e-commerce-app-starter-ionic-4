@@ -1,0 +1,64 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+        <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Change Email</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item color="light" lines="none">
+    <ion-col padding-vertical>
+      <ion-row>
+        <h4 class="small" no-margin><strong>Use this form to change your email address</strong></h4>
+      </ion-row>
+      <ion-row>
+        <h4 class="small" no-margin>You will need to confirm your new address in an email we send you.</h4>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-col padding-vertical>
+      <ion-row>
+        <h4 class="small" no-margin>Current e-mail address</h4>
+      </ion-row>
+      <ion-row>
+        <h4 class="small" no-margin>{{dataService.current_user.email}}</h4>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <div class="sep"></div>
+  <ion-item lines="none">
+    <ion-col padding-vertical>
+      <ion-row>
+        <h4 class="small" no-margin>New e-mail address</h4>
+      </ion-row>
+      <ion-row>
+        <ion-input class="input" placeholder="Enter e-mail address" type="email" padding-horizontal></ion-input>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-col padding-vertical>
+      <ion-row>
+        <h4 class="small" no-margin>Confirm e-mail address</h4>
+      </ion-row>
+      <ion-row>
+        <ion-input class="input" placeholder="Confirm new e-mail address" type="email" padding-horizontal></ion-input>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+</ion-content>
+<ion-footer no-border padding>
+  <ion-button expand="block" color="mytheme" (click)="fun.back()"><span class="white"><strong>Save Changes</strong></span></ion-button>
+</ion-footer>

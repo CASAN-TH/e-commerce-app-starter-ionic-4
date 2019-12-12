@@ -1,0 +1,89 @@
+{
+  "name": "E-Commerce_Ionic4",
+  "version": "1.0.1",
+  "author": "Enappd",
+  "homepage": "https://enappd.com",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^7.2.2",
+    "@angular/core": "^7.2.2",
+    "@angular/forms": "^7.2.2",
+    "@angular/http": "^7.2.2",
+    "@angular/platform-browser": "^7.2.2",
+    "@angular/platform-browser-dynamic": "^7.2.2",
+    "@angular/router": "^7.2.2",
+    "@ionic-native/core": "5.0.0-beta.21",
+    "@ionic-native/social-sharing": "^5.0.0-beta.23",
+    "@ionic-native/splash-screen": "5.0.0-beta.21",
+    "@ionic-native/status-bar": "5.0.0-beta.21",
+    "@ionic/angular": "^4.1.0",
+    "@ionic/pro": "2.0.3",
+    "cordova-android": "7.0.0",
+    "cordova-ios": "4.5.5",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.1.3",
+    "cordova-plugin-ionic-webview": "^2.3.1",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-plugin-x-socialsharing": "^5.4.4",
+    "core-js": "^2.5.4",
+    "es6-promise-plugin": "^4.2.2",
+    "rxjs": "~6.3.3",
+    "sweetalert": "^2.1.2",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/architect": "~0.13.8",
+    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular-devkit/core": "~7.3.8",
+    "@angular-devkit/schematics": "~7.3.8",
+    "@angular/cli": "~7.3.8",
+    "@angular/compiler": "~7.2.2",
+    "@angular/compiler-cli": "~7.2.2",
+    "@angular/language-service": "~7.2.2",
+    "@ionic/angular-toolkit": "~1.5.1",
+    "@ionic/lab": "1.0.15",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~10.12.0",
+    "codelyzer": "~4.5.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~3.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.1.6"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {},
+      "cordova-plugin-x-socialsharing": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

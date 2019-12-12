@@ -1,0 +1,58 @@
+.menu {
+    color: white !important;
+}
+.white {
+    color: white !important;
+}
+.full {
+    display: block;
+    width: 100%;
+}
+.left{
+    float: left;
+}
+.avatar {
+    width: 33px;
+    height: 33px;
+    border-radius: 25px;
+}
+.restrict {
+    --height: 33px;
+}
+.input {
+    background-color: rgba(210, 210, 210, .5);
+    border-radius: 3px;
+    font-size: .9em !important;
+}
+.animate {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    transition: .1s;
+}
+.right{
+    float: right;
+}
+.text {
+    font-size: 15px;
+}
+.card {
+    margin-bottom: 9px;
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 6px;
+    border: .5px solid rgb(210, 210, 210);
+    background-color: white;
+}
+.item-inner {
+    height: 33px;
+}
+@keyframes fadeIn {
+    0%{
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,208 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<div>
+  <ion-row padding-0>
+    <ion-col padding-0 class="padding-0">
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let i of product.image;">
+          <img class="image" [src]="i">
+          <div class="product-image-overlay"></div>
+        </ion-slide>
+      </ion-slides>
+      <ion-badge class="badge">
+        <ion-icon name="images"></ion-icon>{{product.image.length}}
+      </ion-badge>
+      <ion-row justify-content-end class="hover-buttons">
+        <ion-icon size="small" float-right name="logo-instagram" class="fab" (click)="shareViaInstagram(product.image[0])"></ion-icon>
+        <ion-icon size="small" float-right name="share" class="fab" (click)="shareCommon(product.image[0])"></ion-icon>
+        <ion-icon *ngIf="!liked" size="small" float-right name="heart-empty" class="fab" (click)="like()"></ion-icon>
+        <ion-icon *ngIf="liked" size="small" float-right name="heart" class="fab red" (click)="like()"></ion-icon>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <div padding>
+
+    <ion-row lines="none" class="row">
+      <ion-text class="name">{{product.name}}</ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-icon name="star" color="mytheme" *ngFor="let i of fun.array(product.rating)"></ion-icon>
+      <ion-icon name="star-outline" color="mytheme" *ngFor="let i of fun.array(5-product.rating)"></ion-icon>
+      <h6 no-margin padding-start class="rate" (click)="goToReviews()">({{product.store_rating}} store ratings)</h6>
+    </ion-row>
+    
+   
+    <div class="sep"></div>
+    <ion-row class="full info">
+      <ion-row>
+        <ion-col><strong>Sizing</strong></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6 no-margin>Too Small</h6>
+        </ion-col>
+        <ion-col size="8">
+          <div class="progress-outer">
+            <div class="progress-inner" [ngStyle]="{'width': product.sizing.small+'%'}"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6 no-margin>Just Right</h6>
+        </ion-col>
+        <ion-col size="8">
+          <div class="progress-outer">
+            <div class="progress-inner" [ngStyle]="{'width': product.sizing.okay+'%'}"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h6 no-margin>Too Large</h6>
+        </ion-col>
+        <ion-col size="8">
+          <div class="progress-outer">
+            <div class="progress-inner" [ngStyle]="{'width': product.sizing.large+'%'}"></div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+    <div class="sep"></div>
+    <div>
+      <ion-text><span float-left no-margin><strong>Sold By</strong></span></ion-text><br>
+      <ion-row>
+        <ion-col size="2">
+          <ion-avatar class="avatar"><img [src]="product.image[0]"></ion-avatar>
+        </ion-col>
+        <ion-col>
+          <ion-text><span float-left no-margin>{{product.sold_by}}</span></ion-text><br>
+          <ion-text>
+            <h6 float-left no-margin>{{product.store_rating}} ratings</h6>
+          </ion-text><br>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div class="sep"></div>
+    <ion-list lines="none">
+      <ion-row class="full info" (click)="toogle(0)">
+        <ion-col size="9">
+          <strong float-left>Item Specification</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon float-right name="arrow-dropdown" *ngIf="!open[0]"></ion-icon>
+          <ion-icon float-right name="arrow-dropup" *ngIf="open[0]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full" margin-top *ngIf="open[0]">
+        <ion-col>
+          <span float-left>{{product.specs}}</span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toogle(1)">
+        <ion-col size="9">
+          <strong float-left>Description</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon float-right name="arrow-dropdown" *ngIf="!open[1]"></ion-icon>
+          <ion-icon float-right name="arrow-dropup" *ngIf="open[1]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full" margin-top *ngIf="open[1]">
+        <ion-col>
+          <span float-left>{{product.description}}</span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toogle(2)">
+        <ion-col size="9">
+          <strong float-left>Buyer Guarantee</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon float-right name="arrow-dropdown" *ngIf="!open[2]"></ion-icon>
+          <ion-icon float-right name="arrow-dropup" *ngIf="open[2]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row margin-top *ngIf="open[2]">
+        <ion-col>
+          <span float-left>{{product.buyer_guarantee}}</span>
+        </ion-col>
+      </ion-row>
+      <div class="sep"></div>
+      <ion-row class="full info" (click)="toogle(3)">
+        <ion-col size="9">
+          <strong float-left>Shipping Information</strong>
+        </ion-col>
+        <ion-col>
+          <ion-icon float-right name="arrow-dropdown" *ngIf="!open[3]"></ion-icon>
+          <ion-icon float-right name="arrow-dropup" *ngIf="open[3]"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="full" margin-top *ngIf="open[3]">
+        <ion-col>
+          <span float-left><strong>Standard Shipping</strong> {{product.currency}}{{product.shipping}}</span>
+        </ion-col>
+      </ion-row>
+      <!-- <div class="sep"></div> -->
+      <div (touchstart)="remove()" (touchend)="gainback()" *ngFor="let spon of product.sponsored">
+        <ion-text>
+          <h5 no-margin ><strong>Sponsored</strong></h5>
+        </ion-text>
+        <ion-row>
+          <ion-row class="container-outer">
+            <div  (click)="open_item(data)" class="container-inner">
+              <img [src]="spon.image[0]" class="spon-img">
+              <ion-row>
+                <ion-col *ngIf="spon.offer" no-padding>
+                  <ion-text>
+                    <h4 class="price"><span class="inline">{{spon.currency}}{{spon.cost_price}}</span> <strong>{{spon.currency}}{{fun.calculate(spon.cost_price,
+                        spon.discount)}}</strong></h4>
+                  </ion-text>
+                </ion-col>
+                <ion-col *ngIf="!spon.offer" no-padding>
+                  <ion-text>
+                    <h4 class="price"><strong>{{spon.currency}}{{spon.cost_price}}</strong></h4>
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </div>
+          </ion-row>
+        </ion-row>
+      </div>
+
+      <div class="sep"></div>
+      <ion-row class="full info">
+        <ion-row>
+          <ion-col><strong>Recent Reviews</strong></ion-col>
+        </ion-row>
+        <div *ngFor="let review of product.reviews">
+          <ion-row>
+            <ion-col size="2">
+              <ion-avatar class="avatar"><img [src]="review.image"></ion-avatar>
+            </ion-col>
+            <ion-col>
+              <ion-row class="full">
+                <ion-icon float-right name="star" class="small-ico" color="mytheme" *ngFor="let i of fun.array(review.rating)"></ion-icon>
+                <ion-icon float-right name="star-outline" class="small-ico" color="mytheme" *ngFor="let i of fun.array(5-review.rating)"></ion-icon>
+                <h6 float-left text-start no-margin><strong>{{review.name}}</strong></h6><br>
+              </ion-row>
+              <ion-row class="full">
+                <h6 float-left text-start no-margin class="cmnt">{{review.comment}}</h6><br>
+                <img float-left *ngFor="let img of review.images" [src]="img" class="rev-img">
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </div>
+      </ion-row>
+
+    </ion-list>
+  </div>
+</div>

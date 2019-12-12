@@ -1,0 +1,77 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-row align-items-center justify-content-center>
+  <ion-col size="6">
+    <ion-row justify-content-center margin-top>
+      <ion-text><h6 text-center class="small gray" color="light"><strong>OVERALL</strong></h6></ion-text>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-text *ngIf="bool">
+        <span class="margin"><strong>{{product.rating}}</strong></span>
+        <ion-icon name="star" color="mytheme" *ngFor="let i of fun.array(product.rating)"></ion-icon>
+        <ion-icon name="star-outline" color="mytheme" *ngFor="let i of fun.array(5-product.rating)"></ion-icon>
+        <div class="margin rate-small">{{product.rating_count}} Ratings</div>
+      </ion-text>
+      <ion-text *ngIf="!bool">
+        <span class="margin"><strong>{{product.store_rate}}</strong></span>
+        <ion-icon name="star" color="mytheme" *ngFor="let i of fun.array(product.store_rate)"></ion-icon>
+        <ion-icon name="star-outline" color="mytheme" *ngFor="let i of fun.array(5-product.store_rate)"></ion-icon>
+        <div class="margin rate-small">{{product.store_rating_count}} Ratings</div>
+      </ion-text>
+    </ion-row>
+  </ion-col>
+</ion-row>
+<div class="sep"></div>
+<ion-row align-items-center class="row">
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn">All</ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="image"></ion-icon></ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn">Top Rated</ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="star" *ngFor="let i of fun.array(5)"></ion-icon></ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="star" *ngFor="let i of fun.array(4)"></ion-icon></ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="star" *ngFor="let i of fun.array(3)"></ion-icon></ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="star" *ngFor="let i of fun.array(2)"></ion-icon></ion-text></ion-button>
+  <ion-button fill="outline" no-padding no-margin color="medium" class="btn"><ion-text class="filter-btn"><ion-icon name="star" *ngFor="let i of fun.array(1)"></ion-icon></ion-text></ion-button>
+</ion-row>
+<div *ngIf="bool">
+  <ion-item *ngFor="let review of product.reviews">
+    <ion-row>
+      <ion-col size="2"><ion-avatar class="avatar"><img [src]="review.image"></ion-avatar></ion-col>
+      <ion-col>
+        <ion-row class="full block">
+          <ion-icon float-right name="star" class="small-ico" color="mytheme" *ngFor="let i of fun.array(review.rating)"></ion-icon>
+          <ion-icon float-right name="star-outline" class="small-ico" color="mytheme" *ngFor="let i of fun.array(5-review.rating)"></ion-icon>
+          <h6 float-left text-start no-margin><strong>{{review.name}}</strong></h6><br>
+        </ion-row>
+        <ion-row class="full block">
+          <h6 float-left text-start no-margin class="cmnt">{{review.comment}}</h6><br>
+          <img float-left *ngFor="let img of review.images" [src]="img" class="rev-img">
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</div>
+<div *ngIf="!bool">
+  <ion-item *ngFor="let review of product.store_reviews">
+    <ion-row>
+      <ion-col size="2"><ion-avatar class="avatar"><img [src]="review.image"></ion-avatar></ion-col>
+      <ion-col>
+        <ion-row class="full block">
+          <ion-icon float-right name="star" class="small-ico" color="mytheme" *ngFor="let i of fun.array(review.rating)"></ion-icon>
+          <ion-icon float-right name="star-outline" class="small-ico" color="mytheme" *ngFor="let i of fun.array(5-review.rating)"></ion-icon>
+          <h6 float-left text-start no-margin><strong>{{review.name}}</strong></h6><br>
+        </ion-row>
+        <ion-row class="full block">
+          <h6 float-left no-margin class="cmnt">{{review.comment}}</h6><br>
+          <img float-left *ngFor="let img of review.images" [src]="img" class="rev-img">
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</div>

@@ -1,0 +1,66 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header>
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-back-button color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="light">Manage Payments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-row padding-start padding-top>
+    <ion-text>
+      <h4 no-margin class="medium"><strong>Payment methods</strong></h4>
+    </ion-text>
+  </ion-row>
+  <ion-row padding-start padding-bottom>
+    <ion-text>
+      <h4 no-margin class="small" color="light">Slide item for options</h4>
+    </ion-text>
+  </ion-row>
+  <ion-list lines="none" *ngIf="dataService.current_user.billing.length > 0">
+    <ion-item-sliding *ngFor="let add of dataService.current_user.billing; let i = index;">
+      <ion-item>
+        <ion-row class="full" align-items-center>
+          <ion-col size="2">
+            <ion-icon name="card" size="large" color="medium"></ion-icon>
+          </ion-col>
+          <ion-col size="10">
+            <ion-row align-items-center>
+              <p no-margin><strong>XXXX-XXXX-XXXX-{{add.card_number}}</strong></p>
+            </ion-row>
+            <ion-row align-items-center>
+              <p class="small" no-margin>Expiry date: {{add.expiry_date}}</p>
+              <h6 class="small mycolor" *ngIf="i==0" padding-start no-margin>PRIMARY</h6>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary">
+          <ion-icon name="create" size="large"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon name="trash" size="large"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list margin-top lines="none">
+    <ion-item (click)="fun.navigate('newpayment',true)">
+      <ion-icon name="add" class="mycolor" margin-end></ion-icon>
+      <ion-label class="mycolor">
+        Add New Payment
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

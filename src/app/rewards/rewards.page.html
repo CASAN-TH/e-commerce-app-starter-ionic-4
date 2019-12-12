@@ -1,0 +1,268 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">Rewards</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="mytheme" class="segmenttoolbarSection" >
+    <ion-segment (ionChange)="seg($event)" mode="md" scrollable id="dag" class="segSection">
+      <ion-segment-button *ngFor="let item of data; let i = index;" no-margin no-padding (ionSelect)="update(i)" class="my-btn"
+        [value]="item.title" [ngClass]="{'btn-active':segment == item.title}">
+        <ion-text padding-horizontal class="text">{{item.title}}</ion-text>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-slides pager="false" [options]="slideOpts" (ionSlideDidChange)="change()" #Slides>
+    <ion-slide >
+      <ion-col no-padding>
+        <ion-row no-padding class="head full">
+          <ion-col no-padding justify-content-center>
+            <ion-row justify-content-center>
+              <img src="assets/images/login.png" class="img">
+            </ion-row>
+            <ion-row justify-content-center>
+              <ion-text>
+                <h3 no-margin text-center class="toptext">{{rewards.points}} points</h3>
+              </ion-text>
+            </ion-row>
+            <ion-row justify-content-center>
+              <ion-text>
+                <h6 no-margin text-center class="sub">earned since {{fun.date(rewards.since)}}</h6>
+              </ion-text>
+            </ion-row>
+            <ion-row class="m-scroll" margin-top>
+              <ion-segment (ionChange)="segmentChanged($event)">
+                <ion-segment-button no-margin no-padding size="2" *ngFor="let val of subtab;let i = index;" (ionSelect)="update2(i)"
+                  [value]="val" class="my-btn2" [ngClass]="{'btn-active2':sub == val}">
+                  {{val}}
+                </ion-segment-button>
+              </ion-segment>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row padding>
+          <div *ngIf="sub == subtab[0]" padding class="full">
+            <ion-item class="card" lines="none" *ngFor="let d of rewards.available">
+              <ion-row class="full" align-items-center>
+                <ion-col size="3">
+                  <h3 no-margin><strong>{{d.discount}}%</strong></h3>
+                </ion-col>
+                <ion-col>
+                  <ion-row>
+                    <h6 no-margin class="off"><strong>Off your next order</strong></h6>
+                  </ion-row>
+                  <ion-row>
+                    <h6 no-margin class="off-small">$3,506 max</h6>
+                  </ion-row>
+                  <ion-row>
+                    <div class="off-code">
+                      <h6 no-margin class="off-codein">{{d.code}}</h6>
+                    </div>
+                  </ion-row>
+                </ion-col>
+                <ion-text>
+                  <h6 class="off-small bottom" no-margin><span *ngIf="!d.expired">expires</span><span *ngIf="d.expired">expired</span>
+                    {{fun.date(d.expire)}}</h6>
+                </ion-text>
+              </ion-row>
+            </ion-item>
+          </div>
+          <div *ngIf="sub == subtab[1]" padding class="full">
+            <ion-item class="card" lines="none" *ngFor="let d of rewards.used">
+              <ion-row class="full" align-items-center>
+                <ion-col size="3">
+                  <h3 no-margin><strong>{{d.discount}}%</strong></h3>
+                </ion-col>
+                <ion-col>
+                  <ion-row>
+                    <h6 no-margin class="off"><strong>Off your next order</strong></h6>
+                  </ion-row>
+                  <ion-row>
+                    <h6 no-margin class="off-small">$3,506 max</h6>
+                  </ion-row>
+                  <ion-row>
+                    <div class="off-code">
+                      <h6 no-margin class="off-codein">{{d.code}}</h6>
+                    </div>
+                  </ion-row>
+                </ion-col>
+                <ion-text>
+                  <h6 class="off-small bottom" no-margin><span *ngIf="!d.expired">expires</span><span *ngIf="d.expired">expired</span>
+                    {{fun.date(d.expire)}}</h6>
+                </ion-text>
+              </ion-row>
+            </ion-item>
+          </div>
+        </ion-row>
+      </ion-col>
+    </ion-slide>
+    <ion-slide>
+      <ion-col no-padding>
+        <ion-row no-padding class="head full">
+          <ion-col padding>
+            <ion-row>
+              <ion-text>
+                <h3 no-margin text-left class="toptext"><strong>Use your points!</strong></h3>
+              </ion-text>
+            </ion-row>
+            <ion-row>
+              <ion-text>
+                <h6 no-margin text-left class="sub">Use your points to redeem coupons and use them with your next
+                  purchase (Maximum discount of $10)</h6>
+              </ion-text>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <div padding class="full">
+          <ion-item class="card" margin-bottom lines="none" *ngFor="let d of rewards.redeem">
+            <ion-row class="full" align-items-center>
+              <ion-col size="3">
+                <h3 no-margin><strong>{{d.discount}}%</strong></h3>
+              </ion-col>
+              <ion-col>
+                <ion-row>
+                  <h6 no-margin class="off"><strong>OFF</strong></h6>
+                </ion-row>
+                <ion-row>
+                  <h6 no-margin class="off-small">Entire Purchase</h6>
+                </ion-row>
+              </ion-col>
+              <div class="udanchuu mybg">
+                <h6 no-margin class="off-small"><strong class="white">{{d.points}} pts</strong></h6>
+              </div>
+            </ion-row>
+          </ion-item>
+        </div>
+      </ion-col>
+    </ion-slide>
+    <ion-slide>
+      <ion-col no-padding>
+        <ion-row no-padding class="head full">
+          <ion-col padding>
+            <ion-row>
+              <ion-text>
+                <h6 no-margin text-left class="sub2">Earn pointseach time you complete various activities through the
+                  app.</h6>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h6 no-margin text-left class="sub2">Redeem your points for coupons and get discounts on your next
+                  purchase.</h6>
+              </ion-text>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row no-padding class="head full mar-top">
+          <ion-col padding>
+            <ion-row>
+              <ion-text>
+                <h3 no-margin text-left class="sub2"><strong>How do I earn points?</strong></h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-col>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top">POINTS</h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top"><strong>100</strong></h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top"><strong>10</strong></h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top"><strong>10</strong></h3>
+                  </ion-text>
+                </ion-row>
+              </ion-col>
+              <ion-col>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top">ACTION</h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top">Make a purchase</h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top">Review a purchase</h3>
+                  </ion-text>
+                </ion-row>
+                <ion-row>
+                  <ion-text>
+                    <h3 no-margin text-left class="sub2 mar-top">Upload a photo with your review</h3>
+                  </ion-text>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2"><strong>How do I use my points?</strong></h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2">Redeem your points for coupons and get extra discounts. Tap on the
+                  'Redeem' tab to get started.</h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2"><strong>How do I use my coupons?</strong></h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2">Apply your coupon by copying the code associated with it and apply
+                  it at checkout.</h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2">Coupons are non-stackable and the highest valued coupon is applied
+                  first.</h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2"><strong>Do my points expire?</strong></h3>
+              </ion-text>
+            </ion-row>
+            <ion-row margin-top>
+              <ion-text>
+                <h3 no-margin text-left class="sub2">No, your points are always available for you to redeem.</h3>
+              </ion-text>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+<ion-footer padding *ngIf="segment == data[1].title">
+  <h6 no-margin class="off">Available Balanch: <span class="mycolor">{{rewards.points}} points</span></h6>
+</ion-footer>

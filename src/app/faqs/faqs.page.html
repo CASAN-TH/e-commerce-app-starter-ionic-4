@@ -1,0 +1,34 @@
+<!-- /**
+ * Shoppr - E-commerce app starter Ionic 4(https://www.enappd.com)
+ *
+ * Copyright © 2018-present Enappd. All rights reserved.
+ *
+ * This source code is licensed as per the terms found in the
+ * LICENSE.md file in the root directory of this source .
+ */ -->
+
+<ion-header class="mybg">
+  <ion-toolbar color="mytheme">
+    <ion-buttons slot="start">
+      <ion-menu-button class="white menu" color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">FAQs</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="cart" slot="icon-only" (click)="fun.navigate('cart')" class="white" margin></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="light">
+  <ion-item margin-bottom no-padding lines="none" *ngFor="let question of questions; let i = index" class="card"
+    (click)="open(i, question)">
+    <ion-col>
+      <ion-text>
+        <h5 class="title" no-margin>{{question}}</h5>
+      </ion-text>
+    </ion-col>
+    <ion-col float-right size="2">
+      <ion-icon name="arrow-dropright" float-right mode="ios"></ion-icon>
+    </ion-col>
+  </ion-item>
+</ion-content>

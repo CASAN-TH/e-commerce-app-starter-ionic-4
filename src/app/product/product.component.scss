@@ -1,0 +1,121 @@
+.image {
+    // height: 270px;
+}
+.product-image-overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 75%,white 100%);
+}
+.hover-buttons{
+    position: absolute;
+    bottom: -10px;
+    z-index: 10;
+    right: 15px;
+}
+.red{
+    color: red;
+}
+.price {
+    font-size: 15px;
+    float: left;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 3px;
+}
+.inline {
+    font-size: 12px;
+    margin-inline-end: 5px;
+    text-decoration: line-through;
+}
+.badge {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    min-width: 45px;
+    border: 0.6px solid rgba(120, 120, 120, 0.5);
+    border-radius: 25px;
+    z-index: 9;
+    font-size: 16px;
+}
+.cmnt {
+    font-size: 12px;
+}
+.rev-img {
+    width: 50px;
+}
+.row {
+    margin: 5px;
+}
+.spon-img {
+    min-height: 100px;
+    max-height: 100px;
+    margin: 3px;
+}
+.container-outer { 
+    overflow: scroll; 
+    display: flex;
+    flex-wrap: nowrap;
+}
+.container-inner { 
+    min-width: 120px; 
+    max-width: 120px;
+    display: inline;
+    padding: 3px 9px;
+    align-content: center !important;
+}
+.progress-outer {
+    width: 96%;
+    text-align: center;
+    background-color: #f4f4f4;
+    border: 1px solid #dcdcdc;
+    color: #fff;
+    border-radius: 20px;
+}
+.progress-inner {
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: var(--ion-color-mytheme);
+}
+.info {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.name {
+    font-size: 18px;
+}
+.small-ico {
+    font-size: 12px;
+}
+.avatar {
+    width: 33px;
+    height: 33px;
+}
+.sep {
+    height: 1px;
+    background-color: rgb(210, 210, 210);
+    width: 100vw;
+    margin: 6px 0;
+    transform: translateX(-16px);
+}
+.fab {
+    width: 25px;
+    height: 25px;
+    padding: 9px;
+    border-radius: 25px;
+    margin-left: 6px;
+    border: .6px solid rgba(0, 0, 0, .3);
+    background-color: white !important;
+}
+.rate {
+    color: var(--ion-color-mytheme) !important;
+    font-size: 12px;
+}
+.full {
+    width: 100%;
+    display: block;
+}
